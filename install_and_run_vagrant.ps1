@@ -1,3 +1,6 @@
+# Make sure you run PowerShell as an administrator and navigate to the directory where this script is stored
+# Following that, execute the script with this command: .\install_and_run_vagrant.ps1
+
 # Install Chocolatey (if not installed)
 if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
     Set-ExecutionPolicy Bypass -Scope Process -Force
@@ -8,10 +11,11 @@ if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
 choco install virtualbox -y
 choco install vagrant -y
 
-# Remove VBoxManage DHCP server for vboxnet0
+# Remove VBoxManage DHCP server for vboxnet0. 
+# Vagrant sometimes throws up an error saying you are using such a server when you aren't upon spinning up.
 & 'C:\Program Files\Oracle\VirtualBox\VBoxManage.exe' dhcpserver remove --netname HostInterfaceNetworking-vboxnet0
 
-# Set the Vagrant project directory path (root of the C: drive)
+# Set the Vagrant project directory path (I just put it in the directory from which this script originates)
 $vagrantProjectDir = "C:\Users\User\Documents\Powershell_Automation_Scripts\"
 
 # Change to the Vagrant project directory
@@ -33,7 +37,7 @@ if (-not (Test-Path "Vagrantfile")) {
 # Start and provision the Vagrant virtual machine
 vagrant up
 
-# Connect to the Vagrant virtual machine via SSH
+# Connect to the Vagrant virtual machine via SSH. You will now be in an ubuntu environment.
 vagrant ssh
 
 
