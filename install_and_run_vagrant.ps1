@@ -16,7 +16,7 @@ choco install vagrant -y
 & 'C:\Program Files\Oracle\VirtualBox\VBoxManage.exe' dhcpserver remove --netname HostInterfaceNetworking-vboxnet0
 
 # Set the Vagrant project directory path (I just put it in the directory from which this script originates)
-$vagrantProjectDir = "C:\Users\User\Documents\Powershell_Automation_Scripts\"
+$vagrantProjectDir = "C:\Users\silad\Documents\Powershell_stuff\PowerShellLearning"
 
 # Change to the Vagrant project directory
 Set-Location $vagrantProjectDir
