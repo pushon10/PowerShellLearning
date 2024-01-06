@@ -53,7 +53,7 @@ function Get-StarSign {
 }
 
 # Prompt the user for their date of birth
-$dob = Read-Host "Enter your date of birth (MM/DD/YYYY)"
+$dob = Read-Host "Enter your date of birth (DD/MM/YYYY)"
 
 # Call the function to get the star sign. Notice that the user's input was stored in the $dob variable previously, so this is how it is referenced.
 $starSign = Get-StarSign -dob $dob
